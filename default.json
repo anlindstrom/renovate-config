@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Anders's shared Renovate preset: weekly, 14-day release age, grouped non-major updates, no automerge (the overseer lands them).",
+  "extends": ["config:recommended", ":semanticCommits", ":timezone(Europe/Stockholm)", "schedule:weekly"],
+  "minimumReleaseAge": "14 days",
+  "internalChecksFilter": "strict",
+  "automerge": false,
+  "rebaseWhen": "behind-base-branch",
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "labels": ["dependencies"],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["dependencies", "security"],
+    "minimumReleaseAge": null,
+    "schedule": ["at any time"]
+  },
+  "packageRules": [
+    {
+      "description": "One PR per repo for minor and patch updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "non-major dependencies"
+    },
+    {
+      "description": "Major updates one at a time, with release notes to read",
+      "matchUpdateTypes": ["major"],
+      "labels": ["dependencies", "major"]
+    }
+  ]
+}
