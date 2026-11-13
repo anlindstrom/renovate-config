@@ -1,11 +1,11 @@
 # renovate-config
 
-Shared [Renovate](https://docs.renovatebot.com/) preset for Anders's repositories. Renovate's onboarding
-picks up `default.json` here by itself (`local>anders-lindstrom/renovate-config`), so a repository's own
+Shared [Renovate](https://docs.renovatebot.com/) preset for the anlindstrom organisation's repositories. Renovate's onboarding
+picks up `default.json` here by itself (`local>anlindstrom/renovate-config`), so a repository's own
 `renovate.json` is one line:
 
 ```json
-{ "extends": ["local>anders-lindstrom/renovate-config"] }
+{ "extends": ["local>anlindstrom/renovate-config"] }
 ```
 
 What it does: checks weekly (Monday, Stockholm time), waits 14 days after a release, groups minor and patch
@@ -14,3 +14,6 @@ once. The overseer reviews Renovate's PRs and lands them with `land-branch` (mer
 automerge waits for a post-deploy watch with rollback.
 
 The Renovate GitHub app must have access to this repository, or the preset cannot be read.
+
+This is a copy of `anders-lindstrom/renovate-config`, for the repositories in this organisation: Renovate's
+installation here cannot read the private preset on the personal account. Change both together.
